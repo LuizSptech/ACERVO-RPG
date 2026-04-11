@@ -1,3 +1,3 @@
 # Projeto-Pessoal-RPG
 
-Feito para projeto sobre mim
+Projeto sobre RPG
