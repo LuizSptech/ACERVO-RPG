@@ -1,0 +1,9 @@
+.carrosel {
+display: flex;
+justify-content: center;
+flex-direction: row;
+align-items: center;
+width: 10px;
+height: auto;
+};
+
