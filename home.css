@@ -1,9 +1,45 @@
-.carrosel {
-display: flex;
-justify-content: center;
-flex-direction: row;
-align-items: center;
-width: 10px;
-height: auto;
-};
+@import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
 
+.carrosel img{
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    
+
+}
+
+.nav_bar{
+    display: flex;
+    height: 100px;
+    background-color: #F59402;
+}
+
+.nav_bar img{
+    display: flex;
+    height: 100px;
+}
+
+.nav_bar h1{
+    display: flex;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-family: "Metamorphous", serif;
+}
+
+body{
+    background-color: #1D394F;
+}
+
+.fundo01{
+    background-color: #3182EB;
+    height: 500px;
+
+}
+.fundo01 img{
+    display: flex;
+    height: 100%;
+}
+
+.fundo02{
+    background-color: #D29437;
+}
