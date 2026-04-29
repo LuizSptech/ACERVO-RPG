@@ -4,13 +4,17 @@
     src: url(fontes/Dalelands\ Uncial.otf);
 }
 
+body{
+    background-color: #1D394F;
+}
+
+/*Nav-bar*/
 
 .nav_bar{
     display: flex;
     height: 100px;
     background-color: #F59402;
     align-items: center;
-    justify-content: space-between;
     
 
 }
@@ -19,24 +23,36 @@
     
 }
 
+.titulo{
+    display: flex;
+    margin-right: 1150px;
+}
+
 .nav_bar img{
     display: flex;
     height: 100px;
 }
 
-.nav_bar h1{
+.lista ul{
     display: flex;
-    padding-left: 20px;
-    padding-top: 10px;
-    font-family: "D&D-Font"
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    margin-right: 100px;
+
+}
+
+.nav_bar .lista li{
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .nav_bar p {
-    font-family: "Metamorphous", serif;
+    font-family: "D&D-Font", serif;
 }
-/*Nav-bar*/
 
 
+/*Carrosel*/
 
 .carrosel img{
     display: flex;
@@ -67,13 +83,11 @@
     
 
 
-/*Carrosel*/
+/*INFORMATIVO:*/
 
 
+/*FUNDO01*/
 
-body{
-    background-color: #1D394F;
-}
 
 .fundo01{
     background-color: #3182EB;
@@ -85,25 +99,50 @@ body{
 }
 
 .fundo01 img{
-    height: 100%;
-    width: 40%;
+    height: 90%;
+    width: 750px;
     border-radius:10%;
+    display: block;
+    padding-left: 10px;
 
 }
-
-
+.fundo01 p {
+    font-family: "D&D-font";
+    color: white;
+    padding-left: 100px;
+    font-size: 20px;
+    
+}
+/*FUNDO02*/
 .fundo02{
     background-color: #D29437;
     height: 600px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: flex-start;
+    align-items:center;
     
 }
 
 .fundo02 img{
-    height: 100%;
-    width: 40%;
+    height: 90%;
+    width: 750px;
     border-radius:10%;
+    padding-left: 40px;
+    padding-right: 10px;
+}
 
+
+.fundo02 p{
+    font-family: "D&D-Font";
+    color: white;
+    padding-right: 400px;
+    padding-left: 20px;
+    font-size: 20px;
+    
+}
+
+.fundo02 h1{
+
+    color: black;
+    padding-left: 1000px;
 }
