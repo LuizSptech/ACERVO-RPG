@@ -1,4 +1,4 @@
-# MEMORIAL RPG
+# ACERVO RPG
 
 Projeto sobre Preservar historias vividas
 
