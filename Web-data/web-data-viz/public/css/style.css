@@ -533,3 +533,61 @@ button {
 .text-new-gray {
     color: var(--new-gray);
 }*/
+
+
+.dash{
+   background-color: white;
+}
+
+.labubu{
+display: flex;
+width: 5000px;
+height: 1080px;
+color: black;
+}
+
+.borda-lateral{
+    display: flex;
+    width: 1000px;
+    background-color: black;
+}
+
+.borda-lateral h1{
+    display: flex;
+    margin-left: 30%;
+    color: white;
+    
+}
+
+.tudo{
+    display: flex;
+    justify-content:center;
+    
+}
+
+.sobra-nada{
+    background-color: #0000008c;
+
+    width: 400px;
+    min-height: 500px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 0 20px #00000099,
+        0 0 40px #0000004d;
+}
