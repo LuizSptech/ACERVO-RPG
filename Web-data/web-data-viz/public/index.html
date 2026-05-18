@@ -3,80 +3,96 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+
+    <!--NAV-BAR-->
+    
+  <div class="nav_bar">
+
+        <div class="logo-area">
+            <a href="../">
+                <img src="./assets/imagens/rpg.png" alt="">
+            </a>
+
+            <div class="titulo">
+                <h1>ACERVO RPG</h1>
+            </div>
+
         </div>
-      </div>
+
+        <div class="lista">
+
+            <ul>
+                <li><a href="">Sobre</a></li>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="">RPG?</a></li>
+                <li><a href="">LEIA</a></li>
+            </ul>
+
+        </div>
+
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+    <!--Parte de cima-->
+
+    <div class="carrosel">
+        <img src="./assets/imagens/fantasy-endless-hole-landscape.jpg" alt="">
+        <h1> BEM-VINDOS 
+            <br> ACERVO RPG
+        </h1>
     </div>
-  </body>
+    
+
+        <!--INFORMATIVO-->
+
+
+        <div class="fundo01"> <img src="./assets/imagens/foto-presencial02.png" alt="">
+            <div class="texto">
+                <h1 class="aquilo">Oque é acervo RPG?</h1>
+                <p>RPG (Role-Playing Game) é um tipo de jogo onde os participantes assumem papéis de personagens em um
+                    mundo fictício. Nesse universo, os jogadores criam histórias, tomam decisões e enfrentam desafios,
+                    tudo guiado pela imaginação e, muitas vezes, por regras definidas. Mais do que um jogo, o RPG é uma
+                    experiência narrativa onde cada escolha pode mudar completamente o rumo da aventura.</p>
+            </div>
+        </div>
+        <div class="fundo02"> <img src="./assets/imagens/foto-presencial04.png" alt="">
+            <div class="texto02">
+                <h1 class="aquilo02">Qual o proposito do projeto?</h1>
+                <p>O RPG é, acima de tudo, um jogo em grupo. Cada jogador controla um personagem, enquanto um dos
+                    participantes, chamado mestre, narra a história e apresenta os desafios. Juntos, os jogadores tomam
+                    decisões, interagem entre si e constroem a narrativa coletivamente. Não há um caminho fixo: a
+                    história se desenvolve de acordo com as ações do grupo, tornando cada sessão única e colaborativa.
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <!--Gancho-->
+        
+<div class="imagens-fundo">
+  <div class="tela-preta">
+    <button class="botao"> Faça agora seu login</button>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        </div>
+    <p>E descubra o tipo de jogador que você é</p>
+  </div>
+</div>
+
+
+<!--RODAPÉ-->
+     <div class="rodape">
+            <p>Criado por Luiz Fernando &lt;3</p>
+        </div>
+
+
+</body>
 
 </html>

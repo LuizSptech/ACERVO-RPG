@@ -330,11 +330,13 @@ body {
     font-family: "D&D-font";
     color: white;
     padding-left: 100px;
-    font-size: 20px;
-    
-    
+    font-size: 20px;    
 }
 
+.fundo01 h1{
+    text-align: center;
+    font-family: "Metamorphous", serif;;
+}
 
 .fundo02 h1{
 
