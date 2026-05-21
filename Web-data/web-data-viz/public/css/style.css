@@ -347,7 +347,7 @@ body {
 
 /*FUNDO02*/
 .fundo02{
-    background-color: #D29437;
+    background-color: #d29437;
     height: 600px;
     display: flex;
     align-items:center;
@@ -407,12 +407,12 @@ body {
 .body-quiz{
     display: flex;
     justify-content: center;
-    align-items: center;
 
     min-height: calc(100vh - 200px);
     background-image: url(../assets/imagens/Fundo-Quiz.jpg);
     background-size: cover;
     background-position: center;
+    align-items: center;
     
 }
 
@@ -425,26 +425,25 @@ body {
     min-height: calc(100vh - 200px);
     background-size: cover;
     background-position: center;
-    
     color: white;
 }
 
 .tela-preta-quiz{
     background-color: #0000008c;
-    width: 60%;
-    min-height: 500px;
+    width: 75%;
+    height: 500px;
 
     border-radius: 20px;
 
     backdrop-filter: blur(6px);
 
     display: flex;
-    flex-direction: column;
+    color: white;
 
-    justify-content: center;
+    
     justify-content: space-evenly;
-    align-items: center;
-
+    
+flex-direction: column;
     padding: 30px;
 
     text-align: center;
@@ -456,10 +455,30 @@ body {
         0 0 40px #0000004d;
 }
 
+
 .tela-preta h1{
     display: flex;
-    font-family: "D&D-Font", serif;;
+    font-family: "D&D-Font", serif;
 }
+ 
+.tela-preta-quiz .botao-quiz {
+    width: 160px;
+    height: 60px;
+    color: white;
+    background-color: #F59402;
+    border-radius: 17%;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    
+
+}
+
+.tela-preta-quiz .botao-quiz:hover{
+    background-color: #3182EB;
+    transform: translateY(-2px);
+}
+
 
 /*
 :root {
@@ -541,34 +560,37 @@ button {
 
 .labubu{
 display: flex;
-width: 5000px;
-height: 1080px;
+width: 600px;
+height: 500px;
 color: black;
 }
 
 .borda-lateral{
     display: flex;
-    width: 50%;
-    background-color: #3182EB;
-}
+    
+    width: 30%;
+    background-color: rgb(49, 130, 235);
+    justify-content: center;
+    
 
-.borda-lateral h1{
-    display: flex;
-    margin-left: 30%;
-    color: white;
     
 }
 
+
+
 .tudo{
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
+    padding: 0px;
+    
+    
     
 }
 
 .sobra-nada{
     background-color: #0000008c;
 
-    width: 400px;
+    width: 30%;
     min-height: 500px;
 
     border-radius: 20px;
@@ -576,7 +598,7 @@ color: black;
     backdrop-filter: blur(6px);
 
     display: flex;
-    flex-direction: column;
+    
 
     justify-content: center;
     align-items: center;
@@ -590,6 +612,8 @@ color: black;
     box-shadow:
         0 0 20px #00000099,
         0 0 40px #0000004d;
+    align-self: self-end;
 }
+
 
 
