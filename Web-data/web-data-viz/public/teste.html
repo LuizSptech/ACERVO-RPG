@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="titulo">
+        <p>TESTE QUESTIONARIO ACERVO</p>
+    </div>
+    <button onclick="start()" id="butao">COMEÇAR QUIZ</button>
+    <hr>
+
+    <div id="quiz">
+        <div id="Enunciado"></div>
+        <hr>
+        <div id="Pergunta1"></div>
+        <div id="Pergunta2"></div>
+        <div id="Pergunta3"></div>
+        <div id="Pergunta4"></div>
+        <div id="Pergunta5"></div>
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+        <input type="radio">
+    </div>
+</body>
+
+</html>
+
+<script>
+    const listaPerguntas = [
+        {
+            Pergunta1: "O que mais te anima em uma sessão de RPG?",
+            AlternativaA: ["Liderar momentos importantes e tomar decisões", 1],
+            AlternativaB: ["Criar um personagem extremamente forte e eficiente", 2],
+            AlternativaC: ["Ver as regras funcionando corretamente", 3],
+            AlternativaD: ["Interpretar cenas e desenvolver personagens", 4],
+            AlternativaE: ["Ajudar o grupo e acompanhar a dinâmica da mesa.", 5],
+        },
+        {
+            Pergunta2: "Quando cria um personagem, você prioriza…",
+            AlternativaA: ["Carisma e presença no grupo", 1],
+            AlternativaB: ["Habilidades fortes e combinações poderosas", 2],
+            AlternativaC: ["Conhecimento do sistema e mecânicas", 3],
+            AlternativaD: ["História, personalidade e objetivos", 4],
+            AlternativaE: ["Utilidade para a equipe", 5],
+        },
+        {
+            Pergunta3: "Em um combate, você normalmente…",
+            AlternativaA: ["Coordena os aliados", 1],
+            AlternativaB: ["Busca causar o maior impacto possível", 2],
+            AlternativaC: ["Presta atenção nas regras e condições", 3],
+            AlternativaD: ["Faz ações estilosas e interpretativas", 4],
+            AlternativaE: ["Dá suporte e protege os companheiros", 5],
+        },
+        {
+            Pergunta4: "O grupo está perdido sem saber o que fazer. Você…",
+            AlternativaA: ["Assume a liderança", 1],
+            AlternativaB: ["Procura a alternativa mais vantajosa", 2],
+            AlternativaC: ["Analisa as possibilidades dentro das regras", 3],
+            AlternativaD: ["Tenta resolver interpretando a situação", 4],
+            AlternativaE: ["Ajuda o grupo a chegar em um consenso", 5],
+        },
+        {
+            Pergunta5: "Qual dessas frases mais combina com você?",
+            AlternativaA: ["Sigam meu plano", 1],
+            AlternativaB: ["Esse combo pode ficar absurdo", 2],
+            AlternativaC: ["Pelas regras isso funciona diferente", 3],
+            AlternativaD: ["Meu personagem faria isso", 4],
+            AlternativaE: ["Vou ajudar no que precisarem", 5],
+        },
+        {
+            Pergunta6: "O que mais te incomoda em uma campanha?",
+            AlternativaA: ["Falta de direção no grupo", 1],
+            AlternativaB: ["Personagens limitados mecanicamente", 2],
+            AlternativaC: ["Regras inconsistentes", 3],
+            AlternativaD: ["Falta de profundidade narrativa", 4],
+            AlternativaE: ["Falta de cooperação entre os jogadores", 5],
+        },
+        {
+            Pergunta7: "Seu momento favorito em RPG costuma ser…",
+            AlternativaA: ["Grandes decisões importantes", 1],
+            AlternativaB: ["Vencer desafios difíceis usando estratégia", 2],
+            AlternativaC: ["Resolver discussões sobre o sistema", 3],
+            AlternativaD: ["Cenas emocionantes de roleplay", 4],
+            AlternativaE: ["Quando o grupo trabalha unido", 5],
+        },
+        {
+            Pergunta8: "Em discussões na mesa, você normalmente…",
+            AlternativaA: ["Tenta organizar as decisões", 1],
+            AlternativaB: ["Busca a solução mais eficiente", 2],
+            AlternativaC: ["Consulta as regras ou lembra delas", 3],
+            AlternativaD: ["Pensa no impacto narrativo da cena", 4],
+            AlternativaE: ["Escuta todos antes de falar", 5],
+        },
+        {
+            Pergunta9: "O que define um RPG perfeito para você?",
+            AlternativaA: ["Um grupo ativo com liderança forte", 1],
+            AlternativaB: ["Liberdade para criar personagens", 2],
+            AlternativaC: ["Um sistema bem estruturado", 3],
+            AlternativaD: ["Uma história profunda e marcante", 4],
+            AlternativaE: ["Boa convivência e cooperação", 5],
+        },
+        {
+            Pergunta10: "Qual função você mais assume no grupo?",
+            AlternativaA: ["Líder", 1],
+            AlternativaB: ["Linha de frente, responsável por dano e estratégia", 2],
+            AlternativaC: ["Especialista e Conhecedor das regras", 3],
+            AlternativaD: ["Interpretador e conhecedor de regras", 4],
+            AlternativaE: ["Suporte e mediador", 5],
+        },
+    ]
+    /* document.getElementById('teste').style.display = "none"
+     document.getElementById('aparecer').style.display = "flex"
+     const elemento = document.getElementById('centralizar');
+     elemento.style.display = "flex";
+     elemento.style.justifyContent = "center";*/
+    const question1 = document.getElementById('Pergunta1');
+    const question2 = document.getElementById('Pergunta2');
+    const question3 = document.getElementById('Pergunta3');
+    const question4 = document.getElementById('Pergunta4');
+    const question5 = document.getElementById('Pergunta4');
+    const começo = document.getElementById('quiz')
+    const butao = document.getElementById('butao')
+    quiz.style.display = "none"
+    function start() {
+        quiz.style.display = "flex";
+        quiz.style.flexDirection = "column";
+
+        Enunciado.innerHTML = `${listaPerguntas[0].Pergunta1}`
+
+        Pergunta1.innerHTML = `${listaPerguntas[0].AlternativaA[0]}<br>`
+        Pergunta2.innerHTML = `${listaPerguntas[0].AlternativaB[0]}<br>`
+        Pergunta3.innerHTML = `${listaPerguntas[0].AlternativaC[0]}<br>`
+        Pergunta4.innerHTML = `${listaPerguntas[0].AlternativaD[0]}<br>`
+        Pergunta5.innerHTML = `${listaPerguntas[0].AlternativaE[0]}<br>`
+
+
+    }
+
+    function Resposta1() {
+        question1.style
+    }
+
+
+
+
+</script>
