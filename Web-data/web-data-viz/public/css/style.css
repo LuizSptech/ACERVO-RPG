@@ -14,6 +14,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: url(/Projeto-Pessoal-RPG/Web-data/web-data-viz/public/assets/imagens/cursor.png);
 }
 
 /* BODY */
@@ -443,7 +444,7 @@ body {
     
     justify-content: space-evenly;
     
-flex-direction: column;
+    flex-direction: column;
     padding: 30px;
 
     text-align: center;
@@ -469,7 +470,7 @@ flex-direction: column;
     border-radius: 17%;
     border: none;
     font-weight: bold;
-    cursor: pointer;
+    align-self: center;
     
 
 }
@@ -478,6 +479,8 @@ flex-direction: column;
     background-color: #3182EB;
     transform: translateY(-2px);
 }
+
+.tela-preta-quiz .botao
 
 
 /*
@@ -490,7 +493,7 @@ flex-direction: column;
     --warning: #ffc107;
     --warning-dark: #705400;
     --warning-light: #fdebb3;
-    --danger: #dc3545;
+    --danger: #dc3545;adsad
     --danger-dark: #990c19;
     --danger-light: #f0c1c6;
     --new-gray: #CCCCCC;
