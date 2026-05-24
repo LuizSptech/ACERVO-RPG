@@ -621,3 +621,27 @@ color: black;
 
 
 
+#quiz{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+#Resposta1{
+    display: flex;
+    padding-bottom: 5px;
+
+}
+#Resposta2{
+    display: flex;
+}
+#Resposta3{
+    display: flex;
+}
+#Resposta4{
+    display: flex;
+}
+#Resposta5{
+    display: flex;
+}
