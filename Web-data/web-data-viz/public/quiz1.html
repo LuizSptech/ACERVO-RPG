@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body> 
      <div class="nav_bar">
@@ -213,6 +213,7 @@
 
     }
 
+
     function mostrarPergunta(){
 
         Enunciado.innerHTML =
@@ -279,6 +280,7 @@
     console.log(narrador)
     console.log(suporte)
     function mostrarResultado(){
+        
     
         quiz.style.display = "none"
 
@@ -296,9 +298,9 @@
         
         let maior = Math.max(...valores)
         let menor = Math.min(...valores)
-        
+        let amplitude = maior -menor
         if(
-    maior - menor <= 1
+    amplitude <= 2 && menor >= 1
 ){
             final.innerHTML = `RESULTADO SECRETO: MESTRE <br><br>
 
@@ -316,7 +318,7 @@
             
             final.innerHTML =
             "Resultado: PROTAGONISTA"
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         }
 
         else if(maior == combeiro){
