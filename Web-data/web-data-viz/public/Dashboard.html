@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Projeto-Pessoal-RPG/Web-data/web-data-viz/public/css/style.css">
+  <title>Document</title>
+</head>
+
+<body class="dash">
+
+  <div class="nav_bar">
+
+    <div class="logo-area">
+
+      <a href="./assets/imagens/rpg.png">
+        <img src="../Projeto individual/Projeto-Pessoal-RPG/Web-data/web-data-viz/public/assets/imagens/rpg.png" alt="">
+      </a>
+
+      <div class="titulo">
+        <h1>ACERVO RPG</h1>
+      </div>
+
+    </div>
+
+    <div class="lista">
+
+      <ul>
+        <li><a href="">Sobre</a></li>
+        <li><a href="./login.html">Login</a></li>
+        <li><a href="./cadastro.html">Cadastro</a></li>
+        <li><a href="">RPG?</a></li>
+        <li><a href="">LEIA</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="tudo">
+
+    <div class="borda-lateral">
+      <h1>JANELA</h1>
+
+
+    </div>
+
+    <div class="labubu">
+      <canvas class="lafufu"></canvas>
+    </div>
+
+    <div class="sobra-nada">
+    </div>
+  </div>
+
+<footer>
+  <div class="rodape">
+    <p>Criado por Luiz Fernando &lt;3</p>
+  </div>
+</footer>
+  
+
+
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+
+let advogado = 12
+  const ctx = document.getElementsByClassName('lafufu');
+
+
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['Advogado de regras', 'Ator', 'Narradores', 'Pensadores', 'Combeiro', 'Matador', 'Observador', 'Protagonista', '???','coisa'],
+      datasets: [{
+        label: 'Compatibilidade',
+        data: [advogado, 19, 21, 18, 17, 19, 20, 18, 14,22],
+        fill: true,
+        pointBackgroundColor: 'rgb(252, 233, 83)',
+        pointBorderColor: 'rgb(252, 233, 83)',
+        pointHoverBackgroundColor: 'rgb(252, 233, 83)',
+        pointHoverBorderColor: 'rgb(252, 233, 83)',
+        borderWidth: 4,
+        borderColor: 'rgb(252, 233, 83)',
+        backgroundColor: 'rgb(0,0,0,0)',
+        /*    
+*/
+      }]
+    },
+
+  });
+  
+</script>

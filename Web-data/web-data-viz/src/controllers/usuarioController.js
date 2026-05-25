@@ -67,7 +67,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     }{
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        // Passe os valores comzparâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {

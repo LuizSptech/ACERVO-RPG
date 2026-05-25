@@ -56,6 +56,7 @@
                 
             </div>
             <div id="final"></div>
+            <button onclick="guardar()">butão</button>
     </div>
         
       </div>    
@@ -74,7 +75,6 @@
 
 
 
-          
           
           
     </div>
@@ -149,7 +149,7 @@
             Pergunta: "Em discussões na mesa, você normalmente…",
             AlternativaA: "Tenta organizar as decisões" ,
             AlternativaB: "Busca a solução mais eficiente",
-            AlternativaC: "Consulta as regras ou lembrelas",
+            AlternativaC: "Consulta as regras ou lembrar delas",
             AlternativaD: "Pensa no impacto narrativo da cena",
             AlternativaE: "Escuta todos antes de falar", 
         },
@@ -166,7 +166,7 @@
             AlternativaA: "Líder" ,
             AlternativaB: "Linha de frente, responsável por dano e estratégia",
             AlternativaC: "Especialista e Conhecedor das regras",
-            AlternativaD: "Interpretador e conhecedor de regras",
+            AlternativaD: "Interpretador",
             AlternativaE: "Suporte e mediador",
         },
 
@@ -198,6 +198,13 @@
      Resposta4.style.display = "none"
      Resposta5.style.display = "none"
 
+     let tipo1 = 'Protagonista' 
+     let tipo2 = 'Combeiro' 
+     let tipo3 = 'Advogado de regras'
+     let tipo4 = 'Narrador'
+     let tipo5 = 'Suporte'
+     let tipo6 = 'Mestre' 
+
     function start(){
 
         botao.style.display = "none"
@@ -212,6 +219,7 @@
      Resposta5.style.display = "flex"
 
     }
+
 
     function mostrarPergunta(){
 
@@ -270,20 +278,38 @@
             mostrarResultado()
 
         }
+         
 
     }
-
+    console.log(protagonista)
+    console.log(combeiro)
+    console.log(advogado)
+    console.log(narrador)
+    console.log(suporte)
     function mostrarResultado(){
-
+        
+    
         quiz.style.display = "none"
 
-        if( 
-        protagonista > 0 &&
-        combeiro > 0 &&
-        advogado > 0 &&
-        narrador > 0 &&
-        suporte > 0
-        ){
+        
+        
+        
+        let valores = [
+            
+            protagonista,
+            combeiro,
+            advogado,
+            narrador,
+            suporte
+        ]
+        
+        let maior = Math.max(...valores)
+        let menor = Math.min(...valores)
+        let amplitude = maior - menor
+        if(
+    amplitude <= 2 && menor >= 1
+){          
+            let resultado = 6
             final.innerHTML = `RESULTADO SECRETO: MESTRE <br><br>
 
         Você domina todos os aspectos de uma mesa de RPG.
@@ -291,55 +317,70 @@
         Talvez você não seja apenas um jogador...
         Talvez seja o próximo mestre.
         `
-
         return
         }
 
 
 
-        let maior = Math.max(
-            protagonista,
-            combeiro,
-            advogado,
-            narrador,
-            suporte
-        )
-
         if(maior == protagonista){
-
+            let resultado = 1
             final.innerHTML =
-            "Resultado: PROTAGONISTA"
-
+            "Resultado: PROTAGONISTA"            
         }
 
         else if(maior == combeiro){
-
+            let resultado = 2
             final.innerHTML =
             "Resultado: COMBEIRO"
 
         }
 
         else if(maior == advogado){
-
+            let resultado = 3
             final.innerHTML =
             "Resultado: ADVOGADO DE REGRAS"
 
         }
 
         else if(maior == narrador){
-
+            let resultado = 4
             final.innerHTML =
-            "Resultado: NARRADOR / ATOR"
+            "Resultado: INTERPRETADOR / ATOR"
 
         }
 
         else{
-
+            let resultado = 5
             final.innerHTML =
             "Resultado: OBSERVADOR / SUPORTE"
 
         }
 
     }
+    function guardar(){
+        let usuario = sessionStorage.ID_USUARIO;
+        
+        fetch("quizz/guardar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "aplication/json"
+            },
+            body: JSON.stringify({
+                resultadoServer: resultado,
+                usuarioServer: usuario,
+                
+            }),
+        })
+        }
+        
+    
+        
+    
 
+
+    
+
+
+
+    
 </script>
