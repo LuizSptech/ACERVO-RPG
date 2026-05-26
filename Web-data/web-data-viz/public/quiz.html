@@ -191,7 +191,9 @@
     let advogado = 0
     let narrador = 0
     let suporte = 0
-
+    let soma = 0
+    let resultado = 0
+    
      Resposta1.style.display = "none"
      Resposta2.style.display = "none" 
      Resposta3.style.display = "none"
@@ -278,30 +280,29 @@
             mostrarResultado()
 
         }
-         
+        
 
     }
-    console.log(protagonista)
-    console.log(combeiro)
-    console.log(advogado)
-    console.log(narrador)
-    console.log(suporte)
+    
+    let valores = [
+        
+        protagonista,
+        combeiro,
+        advogado,
+        narrador,
+        suporte
+    ]
     function mostrarResultado(){
         
-    
         quiz.style.display = "none"
 
         
+
         
         
-        let valores = [
-            
-            protagonista,
-            combeiro,
-            advogado,
-            narrador,
-            suporte
-        ]
+        
+         console.log(valores)
+        
         
         let maior = Math.max(...valores)
         let menor = Math.min(...valores)
@@ -349,7 +350,7 @@
 
         }
 
-        else{
+        else if (maior == suporte){
             let resultado = 5
             final.innerHTML =
             "Resultado: OBSERVADOR / SUPORTE"
@@ -368,6 +369,7 @@
             body: JSON.stringify({
                 resultadoServer: resultado,
                 usuarioServer: usuario,
+                listaServer: valores
                 
             }),
         })
