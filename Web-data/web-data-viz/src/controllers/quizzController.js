@@ -6,7 +6,7 @@ function guardar(req, res) {
     var resultado = req.body.resultadoServer;
     var usuario = req.body.usuarioServer;
     var valores = req.body.listaServer
-    console.log(valores)
+
     
     
    
