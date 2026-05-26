@@ -360,7 +360,7 @@
         console.log(resultado)
     }
     function guardar(){
-        let usuario = sessionStorage.ID_USUARIO;
+        const usuario = sessionStorage.ID_USUARIO;
         
         fetch("/quizz/guardar", {
             method: "POST",

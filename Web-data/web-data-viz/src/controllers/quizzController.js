@@ -3,8 +3,8 @@ var quizzModel = require("../models/quizzModel");
 
 function guardar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var resultado = req.body.resultadoServer;
     var usuario = req.body.usuarioServer;
+    var resultado = req.body.resultadoServer;
     var valores = req.body.listaServer
 
 
@@ -15,16 +15,16 @@ function guardar(req, res) {
 
     // Faça as validações dos valores
     if (usuario == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Seu id está undefined!");
     } else if (resultado == undefined) {
         res.status(400).send("Seu resultado está undefined!");
     } else if (valores == undefined){
         res.status(400).send("Seus valores está undefined!");
-    }
+    } else
     {
 
         // Passe os valores comzparâmetro e vá para o arquivo quizzModel.js
-        quizzModel.salvarQuiz(usuario, resultado, valores)
+        quizzModel.guardar(usuario, resultado, valores)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -1,4 +1,4 @@
- -- DROP DATABASE ACERVORPG;
+-- DROP DATABASE ACERVORPG;
 
 CREATE DATABASE ACERVORPG;
 USE ACERVORPG;
@@ -92,3 +92,9 @@ INSERT INTO Tipo (nome, descricao) values
 ('Mestre', 'Você domina regras, narrativa e estratégia. Talvez não seja só um jogador, mas o mestre da campanha.');
 
 select * from Tipo;
+select * from Usuario;
+select * from Quiz;
+select * from ResultadoQuiz;
+
+SELECT idUsuario, nome, email FROM Usuario WHERE email = 'luizfernandolufe@yahoo.com.br' AND senha = '1234567';
+SELECT idUsuario, nome, email FROM Usuario WHERE email = 'luizfernando@yahoo.com' AND senha = '1234567';
