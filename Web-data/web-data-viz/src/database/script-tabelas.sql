@@ -1,5 +1,8 @@
+drop database rpgacervo;
+
 create database RPGACERVO;
 use RPGACERVO;
+
 
 -- Tabela Tipo
 CREATE TABLE Tipo (
@@ -9,33 +12,38 @@ CREATE TABLE Tipo (
     PRIMARY KEY (idQuestionario)
 );
 
--- Tabela Usuario
-CREATE TABLE Usuario (
-    idUsuario INT          NOT NULL AUTO_INCREMENT,
+-- Tabela Usuarios
+CREATE TABLE Usuarios (
+    idUsuarios INT          NOT NULL AUTO_INCREMENT,
     nome       VARCHAR(50)  NOT NULL,
     email      VARCHAR(50)  NOT NULL,
     senha      VARCHAR(50)  NOT NULL,
-    PRIMARY KEY (idUsuario)
+    PRIMARY KEY (idUsuarios)
 );
 
 -- Tabela Quiz
 CREATE TABLE Quiz (
     idQuizz    INT      NOT NULL AUTO_INCREMENT,
     fkUsuario  INT      NOT NULL,
+    pontuacao int,
     fkTipo     INT      NOT NULL,
-    pontuacao INT ,
     data       DATETIME NOT NULL,
     PRIMARY KEY (idQuizz),
     CONSTRAINT fk_quiz_usuario
-        FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
+        FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuarios),
     CONSTRAINT fk_quiz_tipo
         FOREIGN KEY (fkTipo)    REFERENCES Tipo (idQuestionario)
 );
+CREATE TABLE Tipo (
+    idQuestionario INT          NOT NULL AUTO_INCREMENT,
+    fkUsuario INT NOT NULL,
+    nome           VARCHAR(45)  NOT NULL,
+    descricao      VARCHAR(120),
+    PRIMARY KEY (idQuestionario),
+    constraint fk_tipo_usuario
+		foreign key (fkUsuario) references Usuarios (idUsuarios)
+);
 
-
--- INSERTS
-
--- INSERTS
 
 INSERT INTO Tipo (nome, descricao) values 
 ('Protagonista', 'Você naturalmente assume liderança e conduz o grupo em momentos importantes. Suas decisões movem a história.');
@@ -55,3 +63,4 @@ INSERT INTO Tipo (nome, descricao) values
 INSERT INTO Tipo (nome, descricao) values 
 ('Mestre', 'Você domina regras, narrativa e estratégia. Talvez não seja só um jogador, mas o mestre da campanha.');
 
+select * from Tipo;
