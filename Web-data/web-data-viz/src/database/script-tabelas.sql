@@ -1,45 +1,77 @@
-drop database RPGACERVO;
+ -- DROP DATABASE ACERVORPG;
 
-create database RPGACERVO;
-use RPGACERVO;
-
-
--- Tabela Tipo
-
-CREATE TABLE Tipo (
-    idQuestionario INT          NOT NULL AUTO_INCREMENT,
-    fkUsuario INT ,
-    nome           VARCHAR(45)  NOT NULL,
-    descricao      VARCHAR(120),
-    PRIMARY KEY (idQuestionario),
-    constraint fk_tipo_usuario
-		foreign key (fkUsuario) references Usuario (idUsuario)
-);
+CREATE DATABASE ACERVORPG;
+USE ACERVORPG;
 
 
--- Tabela Usuario
+-- TABELA USUARIO
+
+
 CREATE TABLE Usuario (
-    idUsuario INT          NOT NULL AUTO_INCREMENT,
-    nome       VARCHAR(50)  NOT NULL,
-    email      VARCHAR(50)  NOT NULL,
-    senha      VARCHAR(50)  NOT NULL,
+    idUsuario INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+
     PRIMARY KEY (idUsuario)
 );
 
--- Tabela Quiz
-CREATE TABLE Quiz (
-    idQuizz    INT      NOT NULL AUTO_INCREMENT,
-    fkUsuario  INT      NOT NULL,
-    pontuacao int,
-    fkTipo     INT      NOT NULL,
-    data       DATETIME NOT NULL,
-    PRIMARY KEY (idQuizz),
-    CONSTRAINT fk_quiz_usuario
-        FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
-    CONSTRAINT fk_quiz_tipo
-        FOREIGN KEY (fkTipo)    REFERENCES Tipo (idQuestionario)
+
+-- TABELA TIPO
+
+
+CREATE TABLE Tipo (
+    idTipo INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+    descricao VARCHAR(200),
+
+    PRIMARY KEY (idTipo)
 );
 
+
+-- TABELA QUIZ
+
+
+CREATE TABLE Quiz (
+    idQuiz INT NOT NULL AUTO_INCREMENT,
+    fkUsuario INT NOT NULL,
+    fkTipoResultado INT NOT NULL,
+    dataQuiz DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (idQuiz),
+
+    CONSTRAINT fkQuizUsuario
+        FOREIGN KEY (fkUsuario)
+        REFERENCES Usuario(idUsuario),
+
+    CONSTRAINT fkQuizTipo
+        FOREIGN KEY (fkTipoResultado)
+        REFERENCES Tipo(idTipo)
+);
+
+
+-- TABELA resultadoQuiz
+
+
+CREATE TABLE ResultadoQuiz (
+    idResultadoQuiz INT NOT NULL AUTO_INCREMENT,
+    fkQuiz INT NOT NULL,
+    fkTipo INT NOT NULL,
+    pontuacao INT NOT NULL,
+
+    PRIMARY KEY (idResultadoQuiz),
+
+    CONSTRAINT fkResultadoQuiz
+        FOREIGN KEY (fkQuiz)
+        REFERENCES Quiz(idQuiz),
+
+    CONSTRAINT fkResultadoTipo
+        FOREIGN KEY (fkTipo)
+        REFERENCES Tipo(idTipo)
+);
+
+
+-- INSERT
 
 INSERT INTO Tipo (nome, descricao) values 
 ('Protagonista', 'Você naturalmente assume liderança e conduz o grupo em momentos importantes. Suas decisões movem a história.');
