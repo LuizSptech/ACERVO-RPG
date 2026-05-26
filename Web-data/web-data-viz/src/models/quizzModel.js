@@ -16,6 +16,11 @@ function guardar(usuario, resultado,valores) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
+        INSERT INTO `
+
+
+
+    var instrucaoSql = `
         INSERT INTO Quiz (fkUsuario, email, senha) VALUES ('${nome}', '${email}', '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
