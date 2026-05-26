@@ -7,6 +7,8 @@ function guardar(req, res) {
     var usuario = req.body.usuarioServer;
     var valores = req.body.listaServer
 
+
+
     
     
    
@@ -22,7 +24,7 @@ function guardar(req, res) {
     {
 
         // Passe os valores comzparâmetro e vá para o arquivo quizzModel.js
-        quizzModel.guardar(usuario, resultado, valores)
+        quizzModel.salvarQuiz(usuario, resultado, valores)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -41,6 +43,5 @@ function guardar(req, res) {
 }
 
 module.exports = {
-    autenticar,
-    cadastrar
+    guardar
 }
