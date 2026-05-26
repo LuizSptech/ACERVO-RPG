@@ -56,7 +56,7 @@
                 
             </div>
             <div id="final"></div>
-            <button onclick="guardar()">butão</button>
+            
     </div>
         
       </div>    
@@ -193,6 +193,7 @@
     let suporte = 0
     let soma = 0
     let resultado = 0
+    let valores = []
     
      Resposta1.style.display = "none"
      Resposta2.style.display = "none" 
@@ -278,10 +279,11 @@
         else{
 
             mostrarResultado()
+            guardar()
 
         }
         
-
+        
     }
     
    
@@ -289,7 +291,7 @@
         
         quiz.style.display = "none"
            
-         let valores = [
+         valores = [
         
         protagonista,
         combeiro,
@@ -307,7 +309,7 @@
         if(
     amplitude <= 2 && menor >= 1
 ){          
-            let resultado = 6
+            resultado = 6
             final.innerHTML = `RESULTADO SECRETO: MESTRE <br><br>
 
         Você domina todos os aspectos de uma mesa de RPG.
@@ -321,47 +323,49 @@
 
 
         if(maior == protagonista){
-            let resultado = 1
+             resultado = 1
             final.innerHTML =
             "Resultado: PROTAGONISTA"            
         }
 
         else if(maior == combeiro){
-            let resultado = 2
+             resultado = 2
             final.innerHTML =
             "Resultado: COMBEIRO"
 
         }
 
         else if(maior == advogado){
-            let resultado = 3
+             resultado = 3
             final.innerHTML =
             "Resultado: ADVOGADO DE REGRAS"
 
         }
 
         else if(maior == narrador){
-            let resultado = 4
+             resultado = 4
             final.innerHTML =
             "Resultado: INTERPRETADOR / ATOR"
 
         }
 
         else if (maior == suporte){
-            let resultado = 5
+             resultado = 5
             final.innerHTML =
             "Resultado: OBSERVADOR / SUPORTE"
 
-        }
+        } 
+        
 
+        console.log(resultado)
     }
     function guardar(){
         let usuario = sessionStorage.ID_USUARIO;
         
-        fetch("quizz/guardar", {
+        fetch("/quizz/guardar", {
             method: "POST",
             headers: {
-                "Content-Type": "aplication/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 resultadoServer: resultado,
@@ -370,7 +374,12 @@
                 
             }),
         })
-        }
+.then(function(resposta){
+    console.log("Dados enviados")
+})
+.catch(function(erro){
+    console.log("Erro:", erro)
+})}
         
             
 
