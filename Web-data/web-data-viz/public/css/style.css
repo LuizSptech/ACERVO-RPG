@@ -589,13 +589,13 @@ canvas {
     gap: 30px;
 }
 
-.select-wrapper {
+.select {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.select-wrapper label {
+.select label {
     font-size: 18px;
     font-weight: bold;
     color: black;
