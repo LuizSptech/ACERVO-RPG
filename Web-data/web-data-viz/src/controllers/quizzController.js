@@ -5,13 +5,7 @@ function guardar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var usuario = req.body.usuarioServer;
     var resultado = req.body.resultadoServer;
-    var valores = req.body.listaServer
-
-
-
-    
-    
-   
+    var valores = req.body.listaServer   
 
     // Faça as validações dos valores
     if (usuario == undefined) {
@@ -42,6 +36,27 @@ function guardar(req, res) {
     }
 }
 
+function buscarResultados(req, res){
+
+    let usuario = req.params.idUsuario;
+
+    quizzModel.buscarResultados(usuario)
+
+    .then(function(resultado){
+
+        res.json(resultado);
+
+    }).catch(function(erro){
+
+        console.log(erro);
+
+        res.status(500).json(erro.sqlMessage);
+
+    });
+
+}
+
 module.exports = {
-    guardar
+    guardar,
+    buscarResultados
 }

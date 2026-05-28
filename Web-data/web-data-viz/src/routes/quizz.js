@@ -7,7 +7,9 @@ var quizzController = require("../controllers/quizzController");
 router.post("/guardar", function (req, res) {
     quizzController.guardar(req, res);
 })
-
+router.get("/dashboard/:idUsuario", function(req, res){
+    quizzController.buscarResultados(req, res);
+})
 
 module.exports = router;
 

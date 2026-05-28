@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testar Sorte | Acervo RPG</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/imagens/rpg.png">
+</head>
+<body class="dashboard">
+ 
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">ACERVORPG</div>
+        <div class="usuario">
+            <div id="nomeUsuario"></div>
+        </div>
+        <div class="menu">
+            <button onclick="window.location='Dashboard.html'">Dashboard</button>
+            <button onclick="window.location='Esteriotipos.html'">Esteriotipos</button>
+            <button>Testar Sorte</button>
+            <button onclick="window.location='index.html'">Home</button>
+            <button onclick="sair()">Sair</button>
+        </div>
+    </div>
+ 
+    <!-- MAIN -->
+    <div class="main">
+        <div class="conteudo-sorte">
+            <button onclick="rolarDado()" class="botaoDado">Rolar D20</button>
+            <h1 id="resultado"></h1>
+            <h2 id="media"></h2>
+            <h2 id="status"></h2>
+            <h3 id="historico"></h3>
+        </div>
+    </div>
+ 
+</body>
+</html>
+ 
+<script>
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+ 
+    const resultado = document.getElementById("resultado");
+    const media = document.getElementById("media");
+    const status = document.getElementById("status");
+    const historicoDiv = document.getElementById("historico");
+ 
+    function rolarDado() {
+        historicoDiv.style.display = "flex";
+        historicoDiv.style.flexDirection = "column";
+ 
+        let dado = Math.floor(Math.random() * 20) + 1;
+        let historico = JSON.parse(sessionStorage.getItem("rolagens"));
+ 
+        if (historico == null) historico = [];
+ 
+        historico.push(dado);
+        sessionStorage.setItem("rolagens", JSON.stringify(historico));
+ 
+        let soma = 0;
+        for (let i = 0; i < historico.length; i++) soma += historico[i];
+ 
+        let mediaCalculada = soma / historico.length;
+        let statusTexto = dado > mediaCalculada ? "Acima da média" : dado < mediaCalculada ? "Abaixo da média" : "Na média";
+ 
+        resultado.innerHTML = `Resultado: ${dado}`;
+        media.innerHTML = `Média: ${mediaCalculada.toFixed(0)}`;
+        status.innerHTML = statusTexto;
+        historicoDiv.innerHTML = `Histórico: ${historico.join(" - ")}`;
+    }
+ 
+    function sair() {
+        sessionStorage.clear();
+        window.location = "./login.html";
+    }
+</script>
+ 

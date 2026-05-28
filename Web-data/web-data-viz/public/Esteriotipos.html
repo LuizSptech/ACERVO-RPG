@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estereótipos | Acervo RPG</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/imagens/rpg.png">
+
+</head>
+<body class="dashboard">
+ 
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">ACERVORPG</div>
+        <div class="usuario">
+            <div id="nomeUsuario"></div>
+        </div>
+        <div class="menu">
+            <button onclick="window.location='Dashboard.html'">Dashboard</button>
+            <button>Estereótipos</button>
+            <button onclick="window.location='sorte.html'">Testar Sorte</button>
+            <button onclick="Window.location='index.html'">Home</button>
+            <button onclick="sair()">Sair</button>
+        </div>
+    </div>
+ 
+    <!-- MAIN -->
+    <div class="main">
+ 
+        <div class="topo">
+            <div>
+                <h1>Estereótipos</h1>
+                <p>Conheça cada tipo de jogador</p>
+            </div>
+        </div>
+ 
+        <div class="estereotipos-container">
+ 
+            <!-- DROPDOWN -->
+            <div class="select-wrapper">
+                <label for="select-estereotipo">Selecione um estereótipo:</label>
+                <select class="select-estereotipo" id="selectEstereotipo" onchange="mostrarDescricao()">
+                    <option value="">-- Escolha um tipo --</option>
+                    <option value="protagonista">Protagonista</option>
+                    <option value="combatente">Combatente</option>
+                    <option value="advogado">Advogado de Regras</option>
+                    <option value="narrador">Narrador</option>
+                    <option value="suporte">Suporte</option>
+                    <option value="mestre">Mestre</option>
+                </select>
+            </div>
+ 
+            <!-- ÁREA DE DESCRIÇÃO -->
+            <div class="descricao-area" id="descricaoArea">
+                <img src="" alt="" class="descricao-foto" id="descricaoFoto">
+                <div class="descricao-texto">
+                    <span class="tag" id="descricaoTag"></span>
+                    <h2 id="descricaoTitulo"></h2>
+                    <p id="descricaoTexto"></p>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+ 
+</body>
+</html>
+ 
+<script>
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+ 
+    const estereotipos = {
+        protagonista: {
+            titulo: "O Protagonista",
+            tag: "Líder nato",
+            foto: "./assets/imagens/protagonista.png",
+            descricao: `O Protagonista é aquele jogador que naturalmente assume o centro das atenções. 
+            Ele gosta de tomar decisões importantes, liderar o grupo e estar no coração da narrativa. 
+            Não necessariamente por egoísmo — muitas vezes ele só quer garantir que a história avance 
+            e que o grupo tenha direção. Nas mesas, é o primeiro a falar com o NPC, o primeiro a aceitar 
+            o desafio e o que mais se lembra das sessões depois.`
+        },
+        combatente: {
+            titulo: "O Combatente",
+            tag: "Estrategista",
+            foto: "./assets/imagens/combatente.png.jpg",
+            descricao: `O Combatente vive para os momentos de batalha. Ele estuda combinações de habilidades, 
+            otimiza o personagem ao máximo e sabe exatamente quanto de dano consegue causar em cada turno. 
+            Para ele, vencer um encontro difícil com estratégia é tão satisfatório quanto qualquer cena 
+            dramática. É o jogador que mais conhece as fichas e nunca esquece de rolar o dado de dano extra.`
+        },
+        advogado: {
+            titulo: "O Advogado de Regras",
+            tag: "Especialista",
+            foto: "./assets/imagens/advogado.png",
+            descricao: `O Advogado de Regras conhece o sistema de cor. Ele sabe a página exata de cada regra, 
+            lembra de interações obscuras entre habilidades e não deixa passar nenhuma inconsistência. 
+            Pode parecer chato para alguns, mas é ele quem garante que a mesa funcione de forma justa. 
+            No fundo, só quer que todos joguem dentro das mesmas regras — e que o sistema seja respeitado.`
+        },
+        narrador: {
+            titulo: "O Narrador",
+            tag: "Interpretador",
+            foto: "./assets/imagens/narrador.png",
+            descricao: `O Narrador é o ator da mesa. Ele cria personagens com histórias profundas, interpreta 
+            cada cena com emoção e se importa muito com o desenvolvimento da narrativa. Para ele, o RPG é 
+            teatro colaborativo. Fichas e regras são apenas ferramentas — o que importa de verdade é a história 
+            que está sendo contada e os momentos que ficarão na memória de todos.`
+        },
+        suporte: {
+            titulo: "O Suporte",
+            tag: "Cooperativo",
+            foto: "./assets/imagens/suporte.png",
+            descricao: `O Suporte é a cola da mesa. Ele se preocupa com o bem-estar do grupo, ajuda a resolver 
+            conflitos entre jogadores e sempre pensa no coletivo antes do individual. No jogo, seu personagem 
+            tende a curar, proteger e auxiliar os aliados. Fora do jogo, é ele que organiza a sessão, lembra 
+            de avisar o horário e garante que todo mundo esteja se divertindo.`
+        },
+        mestre: {
+            titulo: "O Mestre",
+            tag: "Resultado Secreto",
+            foto: "./assets/imagens/mestre.png",
+            descricao: `O Mestre é um resultado raro — alguém que equilibra todos os aspectos do RPG com 
+            naturalidade. Ele tem a liderança do Protagonista, a estratégia do Combatente, o conhecimento 
+            do Advogado, a criatividade do Narrador e a empatia do Suporte. São essas qualidades juntas 
+            que fazem um bom Mestre de mesa. Se você chegou até aqui, talvez seu lugar não seja como 
+            jogador — talvez seja do outro lado da tela.`
+        }
+    }
+ 
+    function mostrarDescricao() {
+        const select = document.getElementById("selectEstereotipo");
+        const area = document.getElementById("descricaoArea");
+        const valor = select.value;
+ 
+        if (valor == "") {
+            area.classList.remove("ativo");
+            return;
+        }
+ 
+        const dados = estereotipos[valor];
+ 
+        document.getElementById("descricaoTitulo").innerHTML = dados.titulo;
+        document.getElementById("descricaoTag").innerHTML = dados.tag;
+        document.getElementById("descricaoTexto").innerHTML = dados.descricao;
+        document.getElementById("descricaoFoto").src = dados.foto;
+        document.getElementById("descricaoFoto").alt = dados.titulo;
+ 
+        area.classList.remove("ativo");
+        setTimeout(() => area.classList.add("ativo"), 10); // reinicia animação
+    }
+ 
+    function sair() {
+        sessionStorage.clear();
+        window.location = "./login.html";
+    }
+</script>
+ 

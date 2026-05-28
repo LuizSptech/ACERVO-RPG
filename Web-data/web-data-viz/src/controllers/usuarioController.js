@@ -26,14 +26,7 @@ function autenticar(req, res) {
                         });
                         console.log(resultadoAutenticar);
 
-                        /*aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                            */
+                        
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -65,9 +58,9 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    }{
+    } else {
 
-        // Passe os valores comzparâmetro e vá para o arquivo usuarioModel.js
+        // Passe os valores com parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {

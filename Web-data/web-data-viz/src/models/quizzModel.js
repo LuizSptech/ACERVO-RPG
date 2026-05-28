@@ -44,7 +44,47 @@ function guardar(usuario, resultado, valores) {
     });
 
 }
+function buscarResultados(usuario){
+
+    let instrucaoSql = `
+    
+             SELECT
+            Tipo.nome,
+            ResultadoQuiz.pontuacao,
+
+            (
+                SELECT COUNT(idQuiz)
+                FROM Quiz
+                WHERE fkUsuario = ${usuario}
+            ) AS quantidadeQuiz
+
+        FROM ResultadoQuiz
+
+        JOIN Tipo
+            ON ResultadoQuiz.fkTipo = Tipo.idTipo
+
+        JOIN Quiz
+            ON ResultadoQuiz.fkQuiz = Quiz.idQuiz
+
+        WHERE Quiz.idQuiz = (
+
+            SELECT MAX(idQuiz)
+            FROM Quiz
+            WHERE fkUsuario = ${usuario}
+
+        );
+
+
+    `;
+
+    console.log(instrucaoSql);
+
+    return database.executar(instrucaoSql);
+
+}
+
 
 module.exports = {
-    guardar
+    guardar,
+    buscarResultados
 };

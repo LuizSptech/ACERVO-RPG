@@ -11,7 +11,7 @@
     <script src="./js/sessao.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
+    <link rel="icon" href="./assets/imagens/rpg.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
@@ -23,7 +23,7 @@
 
         <div class="logo-area">
 
-            <a href="./assets/imagens/rpg.png">
+            <a href="./index.html">
                 <img src="./assets/imagens/rpg.png" alt="">
             </a>
 
@@ -34,16 +34,15 @@
         </div>
 
         <div class="lista">
-
             <ul>
                 <li><a href="">Sobre</a></li>
                 <li><a href="./login.html">Login</a></li>
                 <li><a href="./cadastro.html">Cadastro</a></li>
-                <li><a href="">RPG?</a></li>
-                <li><a href="">LEIA</a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
             </ul>
-
         </div>
+    </div>
 
     </div>
    <div class="imagens-fundo-login">
@@ -93,76 +92,73 @@
 
 
     function entrar() {
-        aguardar();
+    aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
 
     
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    
-
-                    setTimeout(function () {
-                        window.location = "./quiz.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
+    if (emailVar == "" || senhaVar == "") {
+        div_mensagem.innerHTML = "Preencha todos os campos!";
+        finalizarAguardar();
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
+
+    if (!emailVar.includes("@")) {
+        div_mensagem.innerHTML = "E-mail inválido! Precisa conter @";
+        finalizarAguardar();
+        return false;
     }
 
+    if (emailVar.length < 6) {
+        div_mensagem.innerHTML = "E-mail muito curto!";
+        finalizarAguardar();
+        return false;
+    }
+
+    
+    if (senhaVar.length < 6) {
+        div_mensagem.innerHTML = "A senha precisa ter pelo menos 6 caracteres!";
+        finalizarAguardar();
+        return false;
+    }
+
+    
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "./quiz.html";
+                }, 1000);
+            });
+        } else {
+            resposta.text().then(texto => {
+                finalizarAguardar(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function sumirMensagem() {
+    div_mensagem.innerHTML = "";
+}
 </script>
