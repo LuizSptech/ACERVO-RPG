@@ -17,7 +17,7 @@ function guardar(req, res) {
     } else
     {
 
-        // Passe os valores comzparâmetro e vá para o arquivo quizzModel.js
+        // Passe os valores comzparâmetro para o arquivo quizzModel.js
         quizzModel.guardar(usuario, resultado, valores)
             .then(
                 function (resultado) {
